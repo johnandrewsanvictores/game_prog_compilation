@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Ken Rodriguez",
+    "game_name": "Enkentadia",
+    "image_path": "/images/ken.jpg"
+  },
+  {
+    "name": "Hannah Zepeda",
+    "game_name": "Enkentadia",
+    "image_path": "/images/hannah.jpg"
+  },
+  {
+    "name": "Alraine Pascua",
+    "game_name": "Enkentadia",
+    "image_path": "/images/aine.jpg"
+  },
+  {
+    "name": "Ivy Dianne Padilla",
+    "game_name": "Enkentadia",
+    "image_path": "/images/ivy.jpg"
+
+  },
+  {
+    "name": "Nicko Balmes",
+    "game_name": "Nicko Coin",
+    "image_path": "/images/nicko.jpg"
+
+  },
+  {
+    "name": "Aaron de Vera",
+    "game_name": "Nicko Coin",
+    "image_path": "/images/aaron.jpg"
+
+  },
+  {
+    "name": "Alduz Garcia",
+    "game_name": "Nicko Coin",
+    "image_path": "/images/alduz.jpg"
+
+  },
+  {
+    "name": "Lander Daniel Ibarra",
+    "game_name": "Nicko Coin",
+    "image_path": "/images/lander.jpg"
+  }
+]
