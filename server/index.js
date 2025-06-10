@@ -1,6 +1,7 @@
 import express from 'express';
 import studentRoutes from './routes/students.js';
 import gameRoutes from './routes/games.js';
+import videoRoutes from './routes/videos.js';
 import path from "path";
 import {fileURLToPath} from "url";
 
@@ -16,6 +17,7 @@ app.use('/images', express.static(path.join(__dirname, 'public/images/students')
 
 app.use("/api/students", studentRoutes);
 app.use("/api/games", gameRoutes);
+app.use("/videos", videoRoutes)
 
 app.listen(8800, () => {
     console.log("Hello World!");
