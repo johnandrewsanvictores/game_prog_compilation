@@ -218,7 +218,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  height: 15em;
+  height: auto;
   width: 100%;
 }
 
@@ -353,11 +353,15 @@ body {
   }
 
   .consoleMeta {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  .consoleStatus {
+    font-size: 0.4rem;
   }
 
   .console {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
 
   .gameName {
