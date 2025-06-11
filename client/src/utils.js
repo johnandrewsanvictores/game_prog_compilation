@@ -89,11 +89,9 @@ function displayConsoleText(description, devs) {
   consoleTextElement.innerHTML = "";
   function typeNextLine() {
     if (lineIndex < lines.length && continueTyping) {
-      typingTimeout = setTimeout(() => {
-        typeText(consoleTextElement, lines[lineIndex], 80, () => {
-          lineIndex++;
-          setTimeout(typeNextLine, 500);
-        });
+      typeText(consoleTextElement, lines[lineIndex], 80, () => {
+        lineIndex++;
+        typingTimeout = setTimeout(typeNextLine, 500);
       });
     }
   }
@@ -122,7 +120,8 @@ export async function displayGameConsole(gameName, onDisplayEnd) {
 
   const video_el = document.getElementById("video-el");
 
-  console.log(gameName, apiUrl);
+  const controller = new AbortController(); // ← 1. Create controller
+  const signal = controller.signal;
 
   consoleWrapper.style.opacity = "1";
   consoleWrapper.style.zIndex = "1000";
@@ -131,48 +130,53 @@ export async function displayGameConsole(gameName, onDisplayEnd) {
   consoleContainer.style.opacity = "1";
   consoleContainer.style.transform = "scale(1)";
 
-  console.log(
-    apiUrl + "/api/games/" + gameName.toLowerCase().replace(" ", "_")
-  );
+  try {
+    const response = await fetch(
+      `${apiUrl}/api/games/${gameName.toLowerCase().replace(" ", "_")}`,
+      { signal } // ← 2. Pass the signal to fetch
+    );
 
-  const response = await fetch(
-    apiUrl + "/api/games/" + gameName.toLowerCase().replace(" ", "_")
-  );
-  const gameInfo = await response.json();
+    const gameInfo = await response.json();
 
-  console.log(gameInfo);
+    gameNameEl.textContent = gameInfo.title;
+    engineValueEl.textContent = gameInfo.engine;
+    genreValueEl.textContent = gameInfo.genre.join(", ");
+    downloadGameBtnEl.href = `https://drive.google.com/uc?export=download&id=${gameInfo.gdrive_id}`;
+    video_el.src = `${apiUrl}/videos/${gameName
+      .toLowerCase()
+      .replace(" ", "_")}.mkv`;
 
-  gameNameEl.textContent = gameInfo.title;
-  engineValueEl.textContent = gameInfo.engine;
-  genreValueEl.textContent = gameInfo.genre.join(", ");
-  downloadGameBtnEl.href =
-    "https://drive.google.com/uc?export=download&id=" + gameInfo.gdrive_id;
-  video_el.src =
-    apiUrl + "/videos/" + gameName.toLowerCase().replace(" ", "_") + ".mkv";
+    let devs = gameInfo.developers.join("<br>");
+    const stopTyping = displayConsoleText(gameInfo.description, devs);
 
-  let devs = gameInfo.developers.join("<br>");
+    function onCloseBtnClick() {
+      onDisplayEnd();
+      stopTyping();
 
-  const stopTyping = displayConsoleText(gameInfo.description, devs);
+      controller.abort(); // ← 3. Abort the fetch if still in progress
 
-  function onCloseBtnClick() {
-    onDisplayEnd();
-    stopTyping();
+      closeBtn.removeEventListener("click", onCloseBtnClick);
 
-    closeBtn.removeEventListener("click", onCloseBtnClick);
+      consoleWrapper.style.opacity = "0";
+      consoleWrapper.style.zIndex = "-1";
+      consoleWrapper.style.transform = "scale(0)";
 
-    consoleWrapper.style.opacity = "0";
-    consoleWrapper.style.zIndex = "-1";
-    consoleWrapper.style.transform = "scale(0)";
+      consoleContainer.style.opacity = "0";
+      consoleContainer.style.transform = "scale(0)";
 
-    consoleContainer.style.opacity = "0";
-    consoleContainer.style.transform = "scale(0)";
+      gameNameEl.textContent = "";
+      engineValueEl.textContent = "";
+      genreValueEl.textContent = "";
+      downloadGameBtnEl.href = "";
+      video_el.src = "";
+    }
 
-    gameNameEl.textContent = "";
-    engineValueEl.textContent = "";
-    genreValueEl.textContent = "";
-    downloadGameBtnEl.href = "";
-    video_el.src = "";
+    closeBtn.addEventListener("click", onCloseBtnClick);
+  } catch (err) {
+    if (err.name === "AbortError") {
+      console.log("Fetch aborted because user closed the console.");
+    } else {
+      console.error("Fetch error:", err);
+    }
   }
-
-  closeBtn.addEventListener("click", onCloseBtnClick);
 }

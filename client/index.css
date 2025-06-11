@@ -41,6 +41,7 @@ body {
 .ui-text {
   margin: 0;
   user-select: none;
+  font-size: 2rem;
 }
 
 .ui-close-btn {
@@ -105,6 +106,8 @@ body {
   transform: scale(0);
   opacity: 0;
   transition: 0.6s ease all;
+  height: 34em;
+  overflow-y: auto;
 }
 
 .consoleHeader {
@@ -200,10 +203,6 @@ body {
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
-  height: 100%;
-  max-height: 30em;
-  overflow: auto;
-  overflow-x: hidden;
 }
 .console {
   background: #181c2f;
@@ -338,6 +337,7 @@ body {
   .gameConsoleUiContainer {
     max-width: 98vw;
     padding: 1.2rem 0.5rem 1rem 0.5rem;
+    height: 30em;
   }
   .gameBody {
     flex-direction: column;
@@ -353,9 +353,10 @@ body {
 @media (max-width: 600px) {
   .gameConsoleUiContainer {
     padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+    height: 27em;
   }
   .gameName {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .consoleMeta {
     font-size: 1.2rem;
@@ -371,6 +372,10 @@ body {
   .downloadGameBtn {
     font-size: 1rem;
     padding: 0.6rem 1.2rem;
+  }
+
+  .ui-text {
+    font-size: 0.9rem;
   }
 }
 
