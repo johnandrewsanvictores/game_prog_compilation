@@ -351,21 +351,34 @@ body {
     min-width: unset;
     width: 100%;
   }
+
+  .consoleMeta {
+    font-size: 0.9rem;
+  }
+
+  .console {
+    font-size: 0.7rem;
+  }
+
+  .gameName {
+    font-size: 1rem;
+  }
+
+  .consoleText p,
+  .consoleText ul,
+  .consoleText li {
+    font-size: 0.7rem;
+  }
 }
 @media (max-width: 600px) {
   .gameConsoleUiContainer {
     padding: 0.5rem 0.2rem 0.5rem 0.2rem;
     height: 29em;
   }
-  .gameName {
-    font-size: 1.5rem;
-  }
   .consoleMeta {
-    font-size: 1.2rem;
     padding: 0.3rem 0.5rem;
   }
   .console {
-    font-size: 1rem;
     padding: 0.7rem 0.5rem;
   }
   .videoPreviewContainer {
