@@ -4,8 +4,8 @@
 }
 
 body {
-  font-family: monogram, monospace;
-  font-size: 2rem;
+  font-family: monogram, "Press Start 2P", system-ui;
+  font-size: 1rem;
   overflow: hidden;
   user-select: none;
 }
