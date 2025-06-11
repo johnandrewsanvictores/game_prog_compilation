@@ -45,7 +45,7 @@ body {
 }
 
 .ui-close-btn {
-  font-family: monogram, monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   border-style: none;
   border-radius: 3px;
   padding: 1rem;
@@ -132,7 +132,7 @@ body {
   margin-right: 0.5rem;
 }
 .gameName {
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   font-size: 2.2rem;
   color: #00fff7;
   letter-spacing: 0.15em;
@@ -147,14 +147,14 @@ body {
 .consoleStatus {
   color: #baff7a;
   font-size: 1.1rem;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   letter-spacing: 0.1em;
 }
 
 .consoleStatus {
   color: #baff7a;
   font-size: 1.1rem;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   letter-spacing: 0.1em;
   text-shadow: 0 0 2px #00ffcc, 0 0 4px #00ffcc, 0 0 8px #00ffcc;
   animation: glow 1.5s ease-in-out infinite alternate;
@@ -187,7 +187,7 @@ body {
   border: 2px solid #baff7a;
   padding: 0.6rem 1rem;
   margin: 0.5rem 0 0.5rem 0;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   color: #baff7a;
   font-size: 1.5rem;
   display: flex;
@@ -212,7 +212,7 @@ body {
   border-radius: 10px;
   padding: 1.2rem 1.2rem 1.2rem 1.2rem;
   color: #baff7a;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   font-size: 1.3rem;
   box-shadow: 0 0 12px #00fff744;
   display: flex;
@@ -299,7 +299,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   font-size: 1.1rem;
   letter-spacing: 0.1em;
   z-index: 2;
@@ -314,7 +314,7 @@ body {
 .downloadGameBtn {
   background: #00fff7;
   color: #181c2f;
-  font-family: "monogram", monospace;
+  font-family: monogram, "Press Start 2P", system-ui;
   font-size: 1.2rem;
   padding: 0.8rem 2.2rem;
   border: none;

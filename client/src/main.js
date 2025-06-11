@@ -152,6 +152,7 @@ k.scene("main", async () => {
                 const consolePlay = k.play("console", {
                   volume: 0.5,
                   speed: 1,
+                  loop: true,
                 });
                 displayGameConsole(boundary.name, () => {
                   player.isInDialogue = false;
