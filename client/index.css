@@ -1,6 +1,6 @@
 @font-face {
+  src: url("./monogram.ttf");
   font-family: monogram;
-  src: url(monogram.ttf);
 }
 
 body {
@@ -108,6 +108,8 @@ body {
   transition: 0.6s ease all;
   height: 34em;
   overflow-y: auto;
+
+  font-family: monogram, "Press Start 2P", system-ui;
 }
 
 .consoleHeader {
@@ -353,7 +355,7 @@ body {
 @media (max-width: 600px) {
   .gameConsoleUiContainer {
     padding: 0.5rem 0.2rem 0.5rem 0.2rem;
-    height: 27em;
+    height: 29em;
   }
   .gameName {
     font-size: 1.5rem;

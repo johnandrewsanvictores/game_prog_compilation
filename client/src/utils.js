@@ -164,6 +164,7 @@ export async function displayGameConsole(gameName, onDisplayEnd) {
       consoleContainer.style.opacity = "0";
       consoleContainer.style.transform = "scale(0)";
 
+      document.querySelector(".consoleText").innerHTML = "";
       gameNameEl.textContent = "";
       engineValueEl.textContent = "";
       genreValueEl.textContent = "";
