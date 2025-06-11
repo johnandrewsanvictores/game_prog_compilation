@@ -1,0 +1,388 @@
+@font-face {
+  font-family: monogram;
+  src: url(monogram.ttf);
+}
+
+body {
+  font-family: monogram, monospace;
+  font-size: 2rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#textbox {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 2vh;
+  min-height: 10vh;
+
+  border-radius: 3px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  word-spacing: 0.2rem;
+  box-shadow: inset 0 0 0 4px #ad6b3a,
+    /* inner dark wood */ inset 0 0 0 8px #e8c094,
+    /* light wood border */ 0 0 0 2px #3f1f0f;
+  border-radius: 8px;
+  background: #fdf0d5;
+}
+
+.ui-text {
+  margin: 0;
+  user-select: none;
+}
+
+.ui-close-btn {
+  font-family: monogram, monospace;
+  border-style: none;
+  border-radius: 3px;
+  padding: 1rem;
+  font-size: inherit;
+
+  background: #f1d2bb;
+  border: 1px #c5a559 ridge;
+  border-radius: 10px;
+  color: white;
+  box-shadow: inset -2px -2px 2px #bb894a;
+  cursor: pointer;
+}
+
+.btn-container {
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.note {
+  position: absolute;
+  left: 5%;
+  top: 1vh;
+  display: flex;
+  flex-direction: column;
+  color: rgb(238, 238, 238);
+  user-select: none;
+}
+
+/* --- Game Console UI Redesign --- */
+.gameConsoleUiWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, #000000c5 40%, #460986ce 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.6s ease all;
+  transform: scale(0);
+}
+
+.gameConsoleUiContainer {
+  background: rgba(20, 10, 40, 0.98);
+  background: linear-gradient(135deg, #6a11cb 0%, #000000 100%);
+  border: 3px solid #00fff7;
+  border-radius: 18px;
+  width: 90vw;
+  max-width: 900px;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.6s ease all;
+}
+
+.consoleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #00fff7;
+  padding-bottom: 0.5rem;
+  padding-inline: 0.5em;
+}
+
+.consoleHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.consoleHeaderLeft i {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+}
+.gameName {
+  font-family: "monogram", monospace;
+  font-size: 2.2rem;
+  color: #00fff7;
+  letter-spacing: 0.15em;
+  margin: 0;
+  text-shadow: 0 0 8px #00fff7, 0 0 2px #fff;
+}
+.consoleHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.consoleStatus {
+  color: #baff7a;
+  font-size: 1.1rem;
+  font-family: "monogram", monospace;
+  letter-spacing: 0.1em;
+}
+
+.consoleStatus {
+  color: #baff7a;
+  font-size: 1.1rem;
+  font-family: "monogram", monospace;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 2px #00ffcc, 0 0 4px #00ffcc, 0 0 8px #00ffcc;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 2px #00ffcc, 0 0 4px #00ffcc;
+    opacity: 0.8;
+  }
+  to {
+    text-shadow: 0 0 4px #00ffcc, 0 0 8px #00ffcc, 0 0 12px #00ffee;
+    opacity: 1;
+  }
+}
+.consoleCloseBtn {
+  background: none;
+  border: none;
+  color: #ff5c8d;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.consoleCloseBtn:hover {
+  color: #fff;
+}
+
+.consoleMeta {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #baff7a;
+  padding: 0.6rem 1rem;
+  margin: 0.5rem 0 0.5rem 0;
+  font-family: "monogram", monospace;
+  color: #baff7a;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.consoleMetaCode {
+  color: #baff7a;
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+.gameBody {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  height: 100%;
+  max-height: 30em;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.console {
+  background: #181c2f;
+  border: 2px solid #00fff7;
+  border-radius: 10px;
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  color: #baff7a;
+  font-family: "monogram", monospace;
+  font-size: 1.3rem;
+  box-shadow: 0 0 12px #00fff744;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  height: 15em;
+  width: 100%;
+}
+
+.consoleText {
+  padding: 0.5em;
+}
+.consoleText p,
+.consoleText ul,
+.consoleText li {
+  margin: 0.2em 0;
+  color: #baff7a;
+  font-family: inherit;
+  font-size: inherit;
+}
+.developersList {
+  list-style: disc inside;
+  margin: 0.5em 0 0 1em;
+  padding: 0;
+}
+
+.developersList li {
+  list-style-type: none;
+}
+
+.consoleVideoPreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid #514f65;
+  background: #181c2f;
+}
+.videoPreviewContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.videoPreviewBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  opacity: 0.85;
+  z-index: 1;
+}
+.videoPlayBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: #fff;
+  border: 4px solid #ff5c8d;
+  color: #ff5c8d;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 0 12px #ff5c8d88;
+}
+.videoPlayBtn:hover {
+  background: #ff5c8d;
+  color: #fff;
+}
+.videoPreviewText {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "monogram", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  z-index: 2;
+  text-shadow: 0 0 8px #000, 0 0 2px #fff;
+}
+
+.consoleFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.downloadGameBtn {
+  background: #00fff7;
+  color: #181c2f;
+  font-family: "monogram", monospace;
+  font-size: 1.2rem;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00fff7cc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  transition: background 0.2s, color 0.2s;
+}
+.downloadGameBtn:hover {
+  background: #181c2f;
+  color: #00fff7;
+  border: 2px solid #00fff7;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .gameConsoleUiContainer {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .gameBody {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .consoleVideoPreview {
+    max-width: 98vw;
+    min-width: unset;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .gameConsoleUiContainer {
+    padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+  }
+  .gameName {
+    font-size: 2rem;
+  }
+  .consoleMeta {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+  }
+  .console {
+    font-size: 1rem;
+    padding: 0.7rem 0.5rem;
+  }
+  .videoPreviewContainer {
+    max-width: 98vw;
+  }
+  .downloadGameBtn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+.consoleText::after {
+  content: "█";
+  animation: blink 0.3s step-start infinite;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

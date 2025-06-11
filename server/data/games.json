@@ -1,16 +1,75 @@
 [
   {
     "title": "Enkentadia",
-    "description": "lorem ipsum",
+    "description": "Enkentadia is an adventure game filled with quests, secrets, and exciting mini-games. Explore a mystical world, battle fierce enemies, and challenge other players in fast-paced PvP duels for glory!",
     "genre": ["Adventure", "2d"],
-    "developers" : ["Ken Rodriguez", "Hannah Zepeda", "Alraine Pascua", "Ivy Dianne Padilla"],
-    "gdrive_id" : "1DsFey7K3W_PlUPHSeGRQqfdyCmP7AQ3i"
+    "engine": "Unity",
+    "developers": [
+      "Ken Rodriguez",
+      "Hannah Zepeda",
+      "Alraine Pascua",
+      "Ivy Dianne Padilla"
+    ],
+    "gdrive_id": "1DsFey7K3W_PlUPHSeGRQqfdyCmP7AQ3i"
   },
   {
     "title": "Nicko Coin",
-    "description": "lorem ipsum",
+    "description": "Nicko Coin is a 2D platformer where you collect 20 coins to move to the next level. Jump, avoid obstacles, and beat the clock",
     "genre": ["Platformer", "2d"],
-    "developers" : ["Nicko Balmes", "Aaron de Vera", "Alduz Garcia", "Lander Daniel Ibarra"],
-    "gdrive_id" : "1T21RyL_1bc-M3nN2NTqv02Tf8HLhYsfY"
+    "engine": "Godot",
+    "developers": [
+      "Nicko Balmes",
+      "Aaron de Vera",
+      "Alduz Garcia",
+      "Lander Daniel Ibarra"
+    ],
+    "gdrive_id": "1T21RyL_1bc-M3nN2NTqv02Tf8HLhYsfY"
+  },
+  {
+    "title": "Klikc",
+    "description": "Klikc is a simple tap game where you tap the circle to score points. How fast can you click?",
+    "genre": ["Casual", "Arcade"],
+    "engine": "Unity",
+    "developers": ["Samuel Lacson", "Venci Yap", "", ""],
+    "gdrive_id": "1hUAyLMbNeylQekAsds8DO4rFQK3GIaWq"
+  },
+  {
+    "title": "Pastel.Season.Love",
+    "description": "Pastel.Season.Love is a heartfelt visual novel about love, relationships, and self-discovery. Dive into a world of colorful characters and emotional choices as you explore the seasons of the heart.",
+    "genre": ["Visual Novel", "Romance"],
+    "engine": "Ren'Py",
+    "developers": [
+      "Ben Llorin",
+      "Jearard David",
+      "Kenneth Jeffrey Alojado",
+      "Lovely Jane Dela Cruz"
+    ],
+    "gdrive_id": "1AWLvPV2V0AS4LOeynDUjbxSAEwoJJ_GY"
+  },
+  {
+    "title": "DinoTen",
+    "description": "DinoTen is a 2D adventure game where you must avoid dinosaurs and survive for a set amount of time to progress to the next stage. Can you outlast the prehistoric threats?",
+    "genre": ["Adventure", "2d"],
+    "engine": "Unity",
+    "developers": [
+      "John Andrew San Victores",
+      "Rhesty Adormeo",
+      "Uriel Sebastian Andrei Diomano",
+      "Dennis Arellano"
+    ],
+    "gdrive_id": "1gxXl8iz82Y0mPn8gmQzGKXdnz0vZwA_X"
+  },
+  {
+    "title": "Dead Pixel",
+    "description": "Dead Pixel is a 2D shooting game where you fight to survive against waves of enemies moving toward you. How long can you hold off the onslaught?",
+    "engine": "Unity",
+    "genre": ["Survival", "Shooter"],
+    "developers": [
+      "Aakikz Afable",
+      "Arjay Iglesia",
+      "Aspirinio Cabula",
+      "Daniel Jose Llarena"
+    ],
+    "gdrive_id": "1fGifkmu-crFq1ompOKc8a0AFokQYyAMS"
   }
 ]

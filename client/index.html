@@ -1,90 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- FontAwesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Tap Verse | BSCS Game Dimension</title>
   </head>
   <body>
-  <style>
-    @font-face {
-      font-family: monogram;
-      src: url(monogram.ttf);
-    }
-
-    body {
-      font-family: monogram,  monospace;
-      font-size: 2rem;
-      overflow: hidden;
-    }
-
-      #app {
-        width: 100%;
-        height:100%;
-        position: relative;
-      }
-
-      #textbox {
-        position: absolute;
-        left: 10%;
-        right: 10%;
-        bottom: 2vh;
-        min-height: 10vh;
-
-        border-radius: 3px;
-        padding: 1rem;
-        display:flex;
-        flex-direction:  column;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        word-spacing: 0.2rem;
-        box-shadow:
-                inset 0 0 0 4px #ad6b3a, /* inner dark wood */
-                inset 0 0 0 8px #e8c094, /* light wood border */
-                0 0 0 2px #3f1f0f;
-        border-radius: 8px;
-        background: #fdf0d5;
-      }
-
-    .ui-text {
-      margin: 0;
-      user-select: none;
-    }
-
-    .ui-close-btn {
-      font-family: monogram, monospace;
-      border-style: none;
-      border-radius: 3px;
-      padding: 1rem;
-      font-size: inherit;
-
-        background: #f1d2bb;
-        border: 1px #c5a559 ridge;
-        border-radius: 10px;
-        color: white;
-        box-shadow: inset -2px -2px 2px #bb894a;
-      cursor: pointer;
-
-    }
-
-    .btn-container {
-      align-self: flex-end;
-      margin-top: 1rem;
-    }
-
-    .note {
-      position: absolute;
-      left: 5%;
-      top: 1vh;
-      display: flex;
-      flex-direction: column;
-      color: rgb(238, 238, 238);
-      user-select: none;
-    }
-
-  </style>
     <div id="app">
       <div id="ui">
         <div id="textbox-container" style="display: none">
@@ -93,6 +21,52 @@
             <div class="btn-container">
               <button id="close" class="ui-close-btn">Close</button>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="gameConsoleUiWrapper">
+        <div class="gameConsoleUiContainer">
+          <div class="consoleHeader">
+            <div class="consoleHeaderLeft">
+              <h3 class="gameName">PIXEL HERO: CODE CHRONICLES</h3>
+            </div>
+            <div class="consoleHeaderRight">
+              <span class="consoleStatus">ONLINE</span>
+              <button class="consoleCloseBtn">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="consoleMeta">
+            <span class="consoleMetaText"
+              ><span class="consoleMetaCode">$</span> Engine:
+              <span id="engine-value">Unity</span> | Genre:
+              <span id="genre-value">Platformer</span> | Released:
+              <span id="released-value">2025</span> | Status:
+              <span id="status-value">ACTIVE</span></span
+            >
+          </div>
+          <div class="gameBody">
+            <div class="console">
+              <div class="consoleText"></div>
+            </div>
+            <div class="consoleVideoPreview">
+              <div class="videoPreviewContainer">
+                <video
+                  id="video-el"
+                  src="./dead_pixel.mkv"
+                  loop
+                  autoplay
+                  muted
+                  style="width: 100%; height: 100vh"
+                ></video>
+              </div>
+            </div>
+          </div>
+          <div class="consoleFooter">
+            <a href="#" class="downloadGameBtn" target="_blank"
+              ><i class="fa-solid fa-download"></i> DOWNLOAD GAME</a
+            >
           </div>
         </div>
       </div>
