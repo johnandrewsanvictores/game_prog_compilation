@@ -42,5 +42,86 @@
     "name": "Lander Daniel Ibarra",
     "game_name": "Nicko Coin",
     "image_path": "/images/lander.jpg"
+  },
+  {
+    "name": "Aakikz Afable",
+    "game_name": "Dead Pixel",
+    "image_path": "/images/aa.jpg"
+
+  },
+  {
+    "name": "Daniel Jose Llarena",
+    "game_name": "Dead Pixel",
+    "image_path": "/images/dj.jpg"
+
+  },
+  {
+    "name": "Aspirinio Cabula",
+    "game_name": "Dead Pixel",
+    "image_path": "/images/ash.jpg"
+
+  },
+  {
+    "name": "Arjay Iglesia",
+    "game_name": "Dead Pixel",
+    "image_path": "/images/arjay.jpg"
+  },
+  {
+    "name": "Ben Llorin",
+    "game_name": "Season.Pastel.Love",
+    "image_path": "/images/ben.jpg"
+
+  },
+  {
+    "name": "Kenneth Jeffrey Alojado",
+    "game_name": "Season.Pastel.Love",
+    "image_path": "/images/kenneth.jpg"
+
+  },
+  {
+    "name": "Lovely Jane Dela Cruz",
+    "game_name": "Season.Pastel.Love",
+    "image_path": "/images/lovely.jpg"
+
+  },
+  {
+    "name": "Jearard David ",
+    "game_name": "Season.Pastel.Love",
+    "image_path": "/images/david.jpg"
+  },
+  {
+    "name": "Samuel Lacson",
+    "game_name": "Klikc",
+    "image_path": "/images/sam.jpg"
+
+  },
+  {
+    "name": "Venci Yap",
+    "game_name": "Klikc",
+    "image_path": "/images/venci.jpg"
+  },
+  {
+    "name": "Rhesty Adormeo",
+    "game_name": "DinoTen",
+    "image_path": "/images/rhesty.jpg"
+
+  },
+  {
+    "name": "Dennis Arellano",
+    "game_name": "DinoTen",
+    "image_path": "/images/dennis.jpg"
+  },
+  {
+    "name": "Uriel Sebastian Andrei Diomano",
+    "game_name": "DinoTen",
+    "image_path": "/images/dio.jpg"
+
+  },
+  {
+    "name": "John Andrew San Victores",
+    "game_name": "DinoTen",
+    "image_path": "/images/drew.jpg"
   }
+
+
 ]

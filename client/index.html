@@ -31,9 +31,8 @@
         right: 10%;
         bottom: 2vh;
         min-height: 10vh;
-        background: white;
+
         border-radius: 3px;
-        outline-style: solid;
         padding: 1rem;
         display:flex;
         flex-direction:  column;
@@ -41,7 +40,12 @@
         justify-content: flex-start;
         align-items: flex-start;
         word-spacing: 0.2rem;
-        filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
+        box-shadow:
+                inset 0 0 0 4px #ad6b3a, /* inner dark wood */
+                inset 0 0 0 8px #e8c094, /* light wood border */
+                0 0 0 2px #3f1f0f;
+        border-radius: 8px;
+        background: #fdf0d5;
       }
 
     .ui-text {
@@ -55,6 +59,14 @@
       border-radius: 3px;
       padding: 1rem;
       font-size: inherit;
+
+        background: #f1d2bb;
+        border: 1px #c5a559 ridge;
+        border-radius: 10px;
+        color: white;
+        box-shadow: inset -2px -2px 2px #bb894a;
+      cursor: pointer;
+
     }
 
     .btn-container {
@@ -75,9 +87,6 @@
   </style>
     <div id="app">
       <div id="ui">
-        <div class="notes">
-          <p class="note">Tap/Click around to move.Approach the object or entity to enable interaction.</p>
-        </div>
         <div id="textbox-container" style="display: none">
           <div id="textbox">
             <p id="dialogue" class="ui-text"></p>

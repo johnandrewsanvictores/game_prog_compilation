@@ -2,6 +2,20 @@ import { k } from "./kaboomCtx.js";
 import {dialogueData, scaleFactor} from "./constants.js";
 import {displayDialogue, setCamScale} from "./utils.js";
 
+let frog = null;
+let bgmStarted = false;
+let bgMusic = null;
+function startBgmOnce() {
+    if (!bgmStarted) {
+        bgMusic = k.play("bgm", {
+            loop: true,
+            volume: 0.5,
+        });
+        bgmStarted = true;
+
+    }
+}
+
 k.loadSprite("spritesheet", "./spritesheet.png", {
     sliceX: 39,
     sliceY: 31,
@@ -15,7 +29,26 @@ k.loadSprite("spritesheet", "./spritesheet.png", {
     }
 });
 
+k.loadSprite("frogsheet", "./spritesheet.png", {
+    sliceX: 39,
+    sliceY: 31,
+    anims: {
+        "idle-down" : 827,  //character down id in tiled editor
+        "walk-down" : {from: 827, to: 828, loop: true, speed: 2},
+    }
+});
+
+
+
 k.loadSprite("map", "./map.png");
+
+k.loadSound("jump", "./sound/Bounce.wav");
+k.loadSound("dialogOpen", "./sound/OpenDialog.wav");
+k.loadSound("bgm", "./sound/Bg.ogg");
+
+k.loadSound("benMusic", "./sound/music.mp3");
+
+
 
 k.setBackground(k.Color.fromHex("#311047"));
 
@@ -29,6 +62,7 @@ k.scene("main", async () => {
         k.scale(scaleFactor)
     ]);
 
+
     const player = k.make([
         k.sprite("spritesheet", {anim: "idle-down"}),
         k.area({
@@ -41,10 +75,15 @@ k.scene("main", async () => {
         {
             speed: 250,
             direction: "down",
-            isInDialogue: false
+            isInDialogue: true
         },
         "player",
     ]);
+
+
+
+
+    displayDialogue("<strong>Welcome to Tapverse: A BSCS Game Dimension</strong>. <br>Controls:Tap/Click around to move.Approach the object or entity to enable interaction.", ()=> {player.isInDialogue = false});
 
     for (const layer of layers) {
         if(layer.name === "boundaries") {
@@ -61,7 +100,56 @@ k.scene("main", async () => {
                 if(boundary.name) {
                     player.onCollide(boundary.name, () => {
                         player.isInDialogue = true;
-                        displayDialogue(dialogueData[boundary.name], ()=> player.isInDialogue = false);
+                        k.play("dialogOpen", {
+                            volume:0.8,
+                            loo: false,
+                        });
+                        bgMusic.stop();
+
+                        if(boundary.name === "music") {
+                            const benPlay = k.play("benMusic", {
+                                volume:1,
+                                speed: 1,
+                            });
+
+                            let isVibing = true;
+
+                            frog = k.add([
+                                k.sprite("frogsheet", { anim: "walk-down" }),
+                                k.area({ shape: new k.Rect(k.vec2(0, 3), 10, 10) }),
+                                k.body(),
+                                k.anchor("center"),
+                                k.pos(player.pos.add(60, 0)), // place next to player
+                                k.scale(scaleFactor),
+                                "frog",
+                            ]);
+
+
+                            // Play music dialogue
+                            displayDialogue("Listening...", () => {
+                                player.isInDialogue = false;
+                                bgMusic.play();
+                                benPlay.stop();
+                                isVibing = false;
+
+                                if (frog) {
+                                    k.destroy(frog);
+                                    frog = null;
+                                }
+                            });
+
+                            player.play("walk-down");
+                            frog.play("walk-down");
+
+
+                            k.loop(0.75, () => {
+                                if (!isVibing) return;
+                                player.play("walk-down");
+                                frog.play("walk-down");
+                            });
+                        }else {
+                            displayDialogue(dialogueData[boundary.name], ()=> player.isInDialogue = false);
+                        }
                     });
                 }
             }
@@ -94,6 +182,7 @@ k.scene("main", async () => {
 
     k.onMouseDown((mouseBtn) => {
         if(mouseBtn !== "left" || player.isInDialogue) return;
+        startBgmOnce();
 
         const worldMousePos = k.toWorld(k.mousePos());
         player.moveTo(worldMousePos, player.speed);
